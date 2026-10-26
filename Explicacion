@@ -1,0 +1,13 @@
+Descripción del problema y de la solución
+
+Una tienda pequeña necesita administrar los nombres y las cantidades disponibles de sus productos desde la consola, sin usar bases de datos, archivos, clases ni diccionarios. Para resolverlo se desarrolló un programa en Python con un menú de ocho opciones: registrar un producto, mostrar el inventario, buscar un producto por su nombre, modificar su cantidad, eliminarlo, mostrar cuántos productos diferentes hay, mostrar el producto con mayor cantidad y salir.
+
+El programa está organizado en funciones propias, una por cada opción del menú, más dos funciones auxiliares: una que lee y valida las cantidades, y otra que busca un producto y devuelve su posición. Se usan ciclos para recorrer y mostrar la información, y condicionales para decidir qué hacer según la opción elegida. Antes de modificar o eliminar un producto, el programa verifica que exista. Si no existe, muestra un mensaje claro y no cambia nada. Las opciones de menú inexistentes y las cantidades inválidas también se manejan con mensajes comprensibles. Además, no se permite registrar dos veces el mismo producto (sin distinguir mayúsculas de minúsculas), porque así cada nombre tiene una única cantidad y las búsquedas, modificaciones y eliminaciones no generan ambigüedad. Si el usuario quiere cambiar el stock de un producto ya registrado, debe usar la opción de modificar cantidad.
+
+Uso de listas para relacionar productos y cantidades
+
+El programa utiliza dos listas paralelas: productos, que guarda los nombres, y cantidades, que guarda las unidades disponibles. La relación entre ambas se mantiene por el índice: el elemento de la posición i de productos y el de la posición i de cantidades describen el mismo producto. Por ejemplo, si productos[0] es “Arroz” y cantidades[0] es 20, significa que hay 20 unidades de arroz.
+
+Para registrar un producto se usa append() en ambas listas, de modo que los dos datos quedan siempre en la misma posición. Para consultar o modificar, la función buscar_indice() recorre la lista productos con un ciclo y devuelve la posición del nombre buscado (o -1 si no existe). Esa misma posición se usa luego para leer o cambiar el valor en cantidades. Al eliminar un producto se aplica pop(i) con el mismo índice en las dos listas. Así, los elementos siguientes se desplazan juntos y las listas nunca se desincronizan. Esto se comprobó eliminando el primer producto del inventario y verificando que los demás conservaron su cantidad correcta.
+
+Si lo prefieres, puedo ajustarlos a un tono más corto o más formal.
